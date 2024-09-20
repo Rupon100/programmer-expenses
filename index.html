@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer Expenses</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center bg-gray-100 min-h-screen">
+
+    <main class="bg-white p-4 rounded-lg m-6">
+        <h1 class="text-center text-2xl font-bold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 via-violet-800 to-pink-500">Programmer Expenses</h1>
+        <div class="flex flex-row my-6">
+            <button id="assistant-btn" class="bg-gradient-to-r from-indigo-700 to-violet-800 basis-1/2 p-2 rounded-s-lg text-white font-semibold">Assistant</button>
+            <button id="history-button" class="basis-1/2">History</button>
+        </div>
+        <section id="assisment-container">
+            <div>
+                <label for="input" class="font-base text-lg text-gray-700">Income*</label>
+                <br>
+                <input id="income-input" class="border border-gray-400 rounded-lg p-2 my-1 w-full" type="text" placeholder="Enter income">
+                <p class="hidden">Error Value!</p>
+            </div>
+            <div class="flex flex-row gap-2 my-4">
+                <div class="basis-1/2">
+                    <label class="font-base text-lg text-gray-700" for="input">Software*</label>
+                    <br>
+                    <input id="softcost-input" class="border border-gray-400 rounded-lg p-2 my-1 w-full" type="text" placeholder="Software expenses">
+                </div>
+                <div class="basis-1/2">
+                    <label class="font-base text-lg text-gray-700" for="input">Courses*</label>
+                    <br>
+                    <input id="course-input" class="border border-gray-400 rounded-lg p-2 my-1 w-full" type="text" placeholder="Course expenses">
+                </div>
+            </div>
+            <div>
+                <label class="font-base text-lg text-gray-700" for="input">Internet*</label>
+                <input id="internet-input" class="border border-gray-400 rounded-lg p-2 my-1 w-full"  type="text" placeholder="Internet expenses">
+            </div>
+            <button id="calculate" class="w-full bg-gradient-to-r from-indigo-700 to-violet-800 basis-1/2 p-2 rounded-lg text-white font-semibold my-4">calculate</button>
+
+            <div>
+                <label class="font-base text-lg text-gray-700" for="input">Savings(%)</label>
+                <input id="savings-input" class="border border-gray-400 rounded-lg p-2 my-1 w-full" type="text" placeholder="Savings amount">
+            </div>
+            <button id="savings-calculate" class="w-full bg-gradient-to-r from-indigo-400 to-blue-400 basis-1/2 p-2 rounded-lg text-white font-semibold my-4">calculate</button>
+
+        </section>
+        <section>
+            <div id="summery-box" class="hidden text-center text-xl font-semibold p-4 border border-indigo-400 rounded-lg">
+                <h1 class="mb-2">Result Summery</h1>
+                <div class="grid grid-rows-2 gap-2">
+                    <div class="grid grid-cols-2">
+                        <div class="text-start rounded-xl border-l-2 border-blue-500 pl-2">
+                            <span class="text-sm text-gray-600">Total Expenses</span>
+                            <p id="expenses-summery" class="text-lg">0</p>
+                        </div>
+                        <div class="text-start rounded-xl border-l-2 border-pink-500 pl-2">
+                            <span  class="text-sm text-gray-600">Banalce</span>
+                            <p id="balance-summery" class="text-lg">0</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="text-start rounded-xl border-l-2 border-sky-800 pl-2">
+                            <span  class="text-sm text-gray-600">Savings Amount</span>
+                            <p id="savings-summery" class="text-lg">0</p>
+                        </div>
+                        <div class="text-start rounded-xl border-l-2 border-orange-500 pl-2">
+                            <span  class="text-sm text-gray-600">Remaining Banalce</span>
+                            <p id="remaining-balance-summery" class="text-lg">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expense-history" class="hidden">
+             
+        </section>
+    </main>
+    
+    <script src="./app.js"></script>
+</body>
+</html>
