@@ -21,7 +21,7 @@
                 <label for="input" class="font-base text-lg text-gray-700">Income*</label>
                 <br>
                 <input id="income-input" class="border border-gray-400 rounded-lg p-2 my-1 w-full" type="text" placeholder="Enter income">
-                <p class="hidden">Error Value!</p>
+                <p id="income-error" class="hidden text-sm text-red-500">Error Value!</p>
             </div>
             <div class="flex flex-row gap-2 my-4">
                 <div class="basis-1/2">
@@ -74,6 +74,7 @@
                     </div>
                 </div>
             </div>
+            <h1 id="math-error" class="hidden text-red-600 text-lg text-center">Income is less then expenses!</h1>
         </section>
 
         <section id="expense-history" class="hidden">

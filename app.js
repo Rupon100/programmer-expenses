@@ -7,18 +7,21 @@ function blankInput(id){
 }
 
 
-
-
-
-
-
-
-
-
 const income = parseFloat(inputValue('income-input'));
 const softwareCost = parseFloat(inputValue('softcost-input'));
 const courseCost = parseFloat(inputValue('course-input'));
 const internetCost = parseFloat(inputValue('internet-input'));
+
+document.getElementById('income-input').addEventListener('input', (e)=> {
+    const typeValue = e.target.value;
+    if(typeValue < 0 || isNaN(typeValue)){
+        document.getElementById('income-error').classList.remove('hidden');
+        return;
+    }else{
+        document.getElementById('income-error').classList.add('hidden');
+    } 
+});
+
 
 document.getElementById('calculate').addEventListener('click', ()=> {
     const income = parseFloat(inputValue('income-input'));
@@ -29,12 +32,15 @@ document.getElementById('calculate').addEventListener('click', ()=> {
     const totalExpenses = softwareCost + courseCost + internetCost;
     const balance = income - totalExpenses;
 
-    console.log(totalExpenses, balance);
-     
-    document.getElementById('expenses-summery').innerText = totalExpenses;
-    document.getElementById('balance-summery').innerText = balance;
-
-    document.getElementById('summery-box').classList.remove('hidden');
+    if(totalExpenses < income){
+        document.getElementById('expenses-summery').innerText = totalExpenses;
+        document.getElementById('balance-summery').innerText = balance;
+        document.getElementById('summery-box').classList.remove('hidden');
+        document.getElementById('math-error').classList.add('hidden');
+    }else{
+        document.getElementById('math-error').classList.remove('hidden');
+        document.getElementById('summery-box').classList.add('hidden');
+    }
 });
 
 
@@ -42,8 +48,6 @@ document.getElementById('savings-calculate').addEventListener('click', ()=> {
     
     const savingsData =  document.getElementById('savings-input').value;
     const savings = parseFloat(savingsData);
-    console.log(savings)
-
 
     const income = parseFloat(inputValue('income-input'));
     const softwareCost = parseFloat(inputValue('softcost-input'));
@@ -55,23 +59,9 @@ document.getElementById('savings-calculate').addEventListener('click', ()=> {
     const savingsAmount = (savings * balance) / 100;
     const remainingBanalce = balance - savingsAmount;
  
-    console.log(savingsAmount, remainingBanalce);
- 
-    // if(savings < 0){
-    //     document.getElementById('savings-summery').innerText = '0';
-    //     document.getElementById('remaining-balance-summery').innerText = '0';
-    // }  
     document.getElementById('savings-summery').innerText = savingsAmount;
     document.getElementById('remaining-balance-summery').innerText = remainingBanalce;  
-     
-    //document.getElementById('summery-box').classList.remove('hidden');
 })
-
-
-
-
- 
-
 
 
 document.getElementById('history-button').addEventListener('click', ()=> {
@@ -86,7 +76,6 @@ document.getElementById('history-button').addEventListener('click', ()=> {
 
     const history = document.getElementById('expense-history');
     history.classList.remove('hidden');
-
 
     const income = parseFloat(inputValue('income-input'));
     const totalExpenses = softwareCost + courseCost + internetCost;
