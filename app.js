@@ -29,29 +29,27 @@ document.getElementById('calculate').addEventListener('click', ()=> {
     document.getElementById('summery-box').classList.remove('hidden');
 });
 
+
+
 document.getElementById('savings-calculate').addEventListener('click', ()=> {
-    //console.log(income);
-    const savingsData =  document.getElementById('savings-input').value;
-    const savings = parseFloat(savingsData);
-    //console.log(savings);
-    const totalExpenses = softwareCost + courseCost + internetCost;
-    //console.log(totalExpenses);
-    const balance = income - totalExpenses;
-    //console.log(balance);
-    const savingsAmount = (savings * balance) / 100;
-    //console.log(savingsAmount);
-    const remainingBanalce = balance - savingsAmount;
-    //console.log(remainingBanalce);
     
+    const savingsData =  document.getElementById('savings-input').value;
+     
+    const savings = parseFloat(savingsData);
+    console.log(savings)
+    const totalExpenses = softwareCost + courseCost + internetCost;
+    const balance = income - totalExpenses;
+    const savingsAmount = (savings * balance) / 100;
+    const remainingBanalce = balance - savingsAmount;
  
-    if(savings > 0){
-        document.getElementById('savings-summery').innerText = savingsAmount;
-        document.getElementById('remaining-balance-summery').innerText = remainingBanalce;
-    } else {
+    console.log(savingsAmount, remainingBanalce);
+ 
+    if(savings < 0){
         document.getElementById('savings-summery').innerText = '0';
         document.getElementById('remaining-balance-summery').innerText = '0';
-    }
-       
+    }  
+    document.getElementById('savings-summery').innerText = savingsAmount;
+    document.getElementById('remaining-balance-summery').innerText = remainingBanalce;  
      
     //document.getElementById('summery-box').classList.remove('hidden');
 })
