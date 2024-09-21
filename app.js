@@ -45,9 +45,10 @@ document.getElementById('savings-calculate').addEventListener('click', ()=> {
     if(savings > 0){
         document.getElementById('savings-summery').innerText = savingsAmount;
         document.getElementById('remaining-balance-summery').innerText = remainingBanalce;
-    }  
-    document.getElementById('savings-summery').innerText = '0';
-    document.getElementById('remaining-balance-summery').innerText = '0';
+    } else {
+        document.getElementById('savings-summery').innerText = '0';
+        document.getElementById('remaining-balance-summery').innerText = '0';
+    }
        
      
     document.getElementById('summery-box').classList.remove('hidden');
@@ -76,6 +77,7 @@ document.getElementById('history-button').addEventListener('click', ()=> {
     const income = parseFloat(inputValue('income-input'));
     const totalExpenses = softwareCost + courseCost + internetCost;
     const balance = income - totalExpenses;
+
     const div = document.createElement('div');
     div.classList.add('text-left', 'text-xl', 'font-semibold', 'p-4', 'my-4', 'border', 'border-indigo-400', 'rounded-lg');
     div.innerHTML = `
