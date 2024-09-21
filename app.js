@@ -7,6 +7,14 @@ function blankInput(id){
 }
 
 
+
+
+
+
+
+
+
+
 const income = parseFloat(inputValue('income-input'));
 const softwareCost = parseFloat(inputValue('softcost-input'));
 const courseCost = parseFloat(inputValue('course-input'));
@@ -30,13 +38,18 @@ document.getElementById('calculate').addEventListener('click', ()=> {
 });
 
 
-
 document.getElementById('savings-calculate').addEventListener('click', ()=> {
     
     const savingsData =  document.getElementById('savings-input').value;
-     
     const savings = parseFloat(savingsData);
     console.log(savings)
+
+
+    const income = parseFloat(inputValue('income-input'));
+    const softwareCost = parseFloat(inputValue('softcost-input'));
+    const courseCost = parseFloat(inputValue('course-input'));
+    const internetCost = parseFloat(inputValue('internet-input'));
+
     const totalExpenses = softwareCost + courseCost + internetCost;
     const balance = income - totalExpenses;
     const savingsAmount = (savings * balance) / 100;
@@ -44,10 +57,10 @@ document.getElementById('savings-calculate').addEventListener('click', ()=> {
  
     console.log(savingsAmount, remainingBanalce);
  
-    if(savings < 0){
-        document.getElementById('savings-summery').innerText = '0';
-        document.getElementById('remaining-balance-summery').innerText = '0';
-    }  
+    // if(savings < 0){
+    //     document.getElementById('savings-summery').innerText = '0';
+    //     document.getElementById('remaining-balance-summery').innerText = '0';
+    // }  
     document.getElementById('savings-summery').innerText = savingsAmount;
     document.getElementById('remaining-balance-summery').innerText = remainingBanalce;  
      
@@ -58,6 +71,7 @@ document.getElementById('savings-calculate').addEventListener('click', ()=> {
 
 
  
+
 
 
 document.getElementById('history-button').addEventListener('click', ()=> {
