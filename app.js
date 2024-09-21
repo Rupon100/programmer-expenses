@@ -25,6 +25,8 @@ document.getElementById('calculate').addEventListener('click', ()=> {
      
     document.getElementById('expenses-summery').innerText = totalExpenses;
     document.getElementById('balance-summery').innerText = balance;
+
+    document.getElementById('summery-box').classList.remove('hidden');
 });
 
 document.getElementById('savings-calculate').addEventListener('click', ()=> {
@@ -51,7 +53,7 @@ document.getElementById('savings-calculate').addEventListener('click', ()=> {
     }
        
      
-    document.getElementById('summery-box').classList.remove('hidden');
+    //document.getElementById('summery-box').classList.remove('hidden');
 })
 
 
